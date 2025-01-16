@@ -1,0 +1,84 @@
+
+
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark ">
+        
+    <a style="color: yellowgreen;" class="navbar-brand px-4" href="#">LIFECARE HOSPITALS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        
+
+        <li class="nav-item">
+            <a style="color: hotpink;" class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/appointmentlist">Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: hotpink;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/create-patient">Patients</a>
+          </li>
+          <li class="nav-item">
+            <a style="color: hotpink;"class="nav-link active" aria-current="page" href="javascript:void(0);" routerLink="/view-medicine">View Medicines</a>
+          </li>
+
+
+        
+        
+      </ul>
+
+      <div class="mx-2">
+        
+        <button style="margin: 5px;"class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/home">Logout</a></button>
+        
+    </div>
+      
+    </div>
+  
+  </nav>
+  
+  <div class="container">
+  <hr>
+    <h2 style="text-align: center;margin-top: 20PX; color: slateblue;">Admin Dashboard</h2>
+    <a style="color:indianred; font-size: x-large;"><marquee behavior="scroll" direction="left">
+      Welcome to Admin Dashboard. Please find the patient list below!!.</marquee></a>
+  <hr>
+ 
+  <br>
+    <a style="color:dodgerblue; font-size: xx-large;">List of Patients Diagnosed</a>
+
+
+
+<div class="row text-center mt-4 ">
+    <table class="table table-striped ">
+        <thead >
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Fees</th>
+                <th>Urgency</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody >
+              @for (item of patients; track $index) {
+                <tr>
+                     <td>{{item.id}}</td>
+                     <td>{{item.name}}</td>
+                     <td>{{item.age}}</td> 
+                    
+                     <td>{{item.fees}}</td>
+                     <td>{{item.urgency}}</td>
+                     <td>
+                      <button (click)="delete(item.id)" class="btn btn-danger">Delete</button>
+                     </td>
+
+                </tr>
+              }
+            
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

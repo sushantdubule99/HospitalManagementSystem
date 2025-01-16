@@ -1,0 +1,68 @@
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark ">
+        
+  <a style="color: yellowgreen;" class="navbar-brand px-4" href="#">LIFECARE HOSPITALS</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+
+   
+  </div>
+
+</nav>
+
+<div class="container">
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card mx-auto">
+          <div class="card-header" style="background-color: honeydew;color: slateblue;">
+            <h2 class="text-center">Add new Medicine</h2>
+          </div>
+          <div class="card-body">
+            <form #form="ngForm">
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for=""> Drug Name</label>
+                  <input type="text" class="form-control" id="drugname" name="drugname" #drug="ngModel" placeholder="Enter Drug Name" [(ngModel)]="medicine.drugName" required>
+                  <div class="text-danger">
+                    @if ((drug.touched || drug.dirty) && drug.errors?.['required']) {
+                      <span>
+                       This is Required
+                      </span>
+                    }
+                   </div>  
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for=""> Stock</label>
+                  <input type="text" class="form-control" id="stock" name="stock" #stock="ngModel" placeholder="Enter Stock" [(ngModel)]="medicine.stock" required>
+                  <div class="text-danger">
+                    @if ((stock.touched || stock.dirty) && stock.errors?.['required']) {
+                      <span>
+                       This is Required
+                      </span>
+                    }
+                   </div>  
+                </div>
+              </div>
+             
+              
+             
+              <div class="row mt-2">
+                <div class="col-3">
+                  <button class="btn  btn-warning" type="submit" (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
+                  
+                </div>
+  
+              </div>
+  
+  
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

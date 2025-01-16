@@ -1,0 +1,111 @@
+
+
+
+<nav style="margin:auto" class="navbar navbar-expand-lg bg-dark ">
+        
+  <a style="color: yellowgreen;" class="navbar-brand px-4" href="#">LIFECARE HOSPITALS</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+
+   
+  </div>
+
+</nav>
+
+<div class="container mx-auto">
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="card mx-auto">
+          <div class="card-header" style="background-color: honeydew;color: slateblue;">
+            <h2 class="text-center">Add new Patient</h2>
+          </div>
+          <div class="card-body">
+            <form #form="ngForm">
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" #name="ngModel" placeholder="Enter Name" [(ngModel)]="patient.name" required>
+                  <div class="text-danger">
+                    @if ((name.touched || name.dirty) && name.errors?.['required']) {
+                      <span>
+                       This is Required
+                      </span>
+                    }
+                   </div>  
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Age</label>
+                  <input type="text" class="form-control" id="age" name="age" placeholder="Enter Age" [(ngModel)]="patient.age">
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Blood Group</label>
+                  <input type="text" class="form-control" id="blood" name="blood" #blood="ngModel" placeholder="Enter blood" [(ngModel)]="patient.blood" required>
+                  <div class="text-danger">
+                    @if ((blood.touched || blood.dirty) && blood.errors?.['required']) {
+                      <span>
+                       This is Required
+                      </span>
+                    }
+                   </div>  
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Prescription</label>
+                  <input type="text" class="form-control" id="prescription" name="prescription" #prescription="ngModel" placeholder="Enter Prescription" [(ngModel)]="patient.prescription" required>
+                  <div class="text-danger">
+                    @if ((prescription.touched || prescription.dirty) && prescription.errors?.['required']) {
+                      <span>
+                       This is Required
+                      </span>
+                    }
+                   </div>  
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Dose</label>
+                  <input type="text" class="form-control" id="dose" name="dose" #dose="ngModel" placeholder="Enter Dose" [(ngModel)]="patient.dose" required>
+                  <div class="text-danger">
+                    @if ((dose.touched || dose.dirty) && dose.errors?.['required']) {
+                      <span>
+                       This is Required
+                      </span>
+                    }
+                   </div>  
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Fees</label>
+                  <input type="text" class="form-control" id="fees" name="fees" placeholder="Enter Fees" [(ngModel)]="patient.fees">
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="form-group">
+                  <label for="">Urgency</label>
+                  <input type="text" class="form-control" id="urgency" name="urgency" placeholder="Enter Urgency" [(ngModel)]="patient.urgency">
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-3">
+                  <button class="btn  btn-warning" type="submit" (click)="onSubmit()" [disabled]="form.invalid">Submit</button>
+                </div>
+  
+              </div>
+  
+  
+  
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
